@@ -8,7 +8,7 @@
     margin: auto;
 }
 
-header {
+.header {
     background-color: rgba(222, 212, 111, .7);
     width: 100%;
 }
