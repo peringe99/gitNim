@@ -1,16 +1,12 @@
+body{
+    background-color: grey;
+}
 
-
-p {
+h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
-};
-
-h1 {
-    font-size: 100px;
+}
+p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-};
-
-body{
-    background-color: pink;
-
-};
+    color: white;
+}
