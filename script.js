@@ -68,7 +68,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
     let player1 = prompt("Name of player one?");
     let player2 = prompt("Name of player two?");
 
-    player1.innerHTML = 
+    document.getElementById("name_one").innerHTML = player1;
+    document.getElementById("name_two").innerHTML = player2;
 
     // let btn1 = document.getElementById('btn1');
     // let btn2 = document.getElementById('btn2');
