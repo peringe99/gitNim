@@ -64,6 +64,12 @@ game1.addPlayer("Ali"); // 1
 //console.log(game1.get_player());
 
 document.addEventListener("DOMContentLoaded", function(e) {
+
+    let player1 = prompt("Name of player one?");
+    let player2 = prompt("Name of player two?");
+
+    player1.innerHTML = 
+
     // let btn1 = document.getElementById('btn1');
     // let btn2 = document.getElementById('btn2');
     // let btn3 = document.getElementById('btn3');
@@ -96,3 +102,4 @@ document.addEventListener("DOMContentLoaded", function(e) {
     // })
 
 })
+
