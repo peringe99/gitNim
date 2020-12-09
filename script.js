@@ -32,7 +32,9 @@ class Game {
                 this.stack = this.stack - number;
                 player.myTurn = false;
                 if (this.stack <= 0) {
-                    return this.players[player - 1];
+                    alert(`${player.name} lost!`)
+                    return 
+                    //this.players[player - 1];
                 }
 
             } else {
