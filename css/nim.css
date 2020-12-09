@@ -100,6 +100,30 @@ h1 {
     height: 100px;
 }
 
+.choice {
+    text-align: center;
+    margin: 10px;
+}
+
+.choice button {
+    width: 100px;
+    height: 30px;
+}
+
+.start_over {
+    text-align: center;
+    margin: 10px;
+}
+
+.start_over button {
+    width: 100px;
+    height: 30px;
+}
+
+.active {
+    background-color: seagreen;
+}
+
 
 /* End Game Area */
 

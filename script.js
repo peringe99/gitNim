@@ -64,19 +64,35 @@ game1.addPlayer("Ali"); // 1
 //console.log(game1.get_player());
 
 document.addEventListener("DOMContentLoaded", function(e) {
-    let btn1 = document.getElementById('btn1').innerHTML
-    let btn2 = document.getElementById('btn2')
-    let btn3 = document.getElementById('btn3')
-    console.log(btn1)
+    // let btn1 = document.getElementById('btn1');
+    // let btn2 = document.getElementById('btn2');
+    // let btn3 = document.getElementById('btn3');
 
-
-
-    btn1.addEventListener('click', game1.draw(1))
-    btn2.addEventListener('click', function(e) {
-        game1.draw(2);
+    let btn_choice = document.querySelectorAll(".btn_choice");
+    let count = 0;
+    btn_choice.forEach((x, index) => {
+        x.addEventListener('click', function(e) {
+            game1.draw(index + 1)
+            count++;
+            let stick = document.getElementById(`stick_${ count }`);
+            stick.style.display = 'none';
+            console.log(game1.stack)
+            console.log(stick)
+        })
     })
-    btn3.addEventListener('click', function(e) {
-        game1.draw(3);
-    })
+
+    // btn1.addEventListener('click', function(e) {
+    //     game1.draw(1);
+
+    //     console.log(game1.stack)
+    // })
+    // btn2.addEventListener('click', function(e) {
+    //     game1.draw(2);
+    //     console.log(game1.stack)
+    // })
+    // btn3.addEventListener('click', function(e) {
+    //     game1.draw(3);
+    //     console.log(game1.stack)
+    // })
 
 })
