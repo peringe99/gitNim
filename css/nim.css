@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -59,29 +59,71 @@
     color: #FFF;
 }
 
-h1{
+h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     align-content: center;
 }
 
-.player1{
+
+/* Start Game Area */
+
+.player1 {
     border-style: solid;
     width: 200px;
     height: 350px;
     margin-left: 8%;
-    
 }
 
-.player2{
+.player2 {
     border-style: solid;
     width: 200px;
     height: 350px;
     margin-left: 60%;
-
 }
 
-.players{
+.players {
     display: flex;
     flex-direction: row;
 }
+
+.game_area {
+    width: 100%;
+}
+
+
+/* End Game Area */
+
+
+/* Start Grid System */
+
+@media (min-width: 576px) {
+    /* Small Devices => Landscape Phones */
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Medium Devices => Tablets */
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Desktops */
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* Large Screens */
+    .container {
+        max-width: 1140px;
+    }
+}
+
+
+/* End Grid System */
