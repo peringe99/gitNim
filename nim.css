@@ -70,11 +70,18 @@ h1{
     width: 200px;
     height: 350px;
     margin-left: 8%;
+    
 }
 
 .player2{
     border-style: solid;
     width: 200px;
     height: 350px;
-    margin-left: 85%;
+    margin-left: 60%;
+
+}
+
+.players{
+    display: flex;
+    flex-direction: row;
 }
