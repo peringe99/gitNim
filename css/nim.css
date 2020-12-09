@@ -93,6 +93,8 @@ h1 {
 
 .game_area .game_sticks {
     width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .game_area .game_sticks img {
