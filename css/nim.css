@@ -126,7 +126,14 @@ h1 {
     background-color: seagreen;
 }
 
-
+.player1{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.player2{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 /* End Game Area */
 
 

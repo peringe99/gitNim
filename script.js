@@ -44,8 +44,6 @@ class Game {
 };
 let max_draw = 3;
 let game1 = new Game()
-game1.addPlayer("Angelika"); // 0
-game1.addPlayer("Ali"); // 1
 // game1.draw(2);
 // console.log(game1.get_player());
 // game1.draw(18)
@@ -64,6 +62,15 @@ game1.addPlayer("Ali"); // 1
 //console.log(game1.get_player());
 
 document.addEventListener("DOMContentLoaded", function(e) {
+
+    let player1 = prompt("Name of player one?");
+    let player2 = prompt("Name of player two?");
+    game1.addPlayer(player1);
+    game1.addPlayer(player2);
+
+    document.getElementById("name_one").innerHTML = player1;
+    document.getElementById("name_two").innerHTML = player2;
+
     // let btn1 = document.getElementById('btn1');
     // let btn2 = document.getElementById('btn2');
     // let btn3 = document.getElementById('btn3');
@@ -96,3 +103,4 @@ document.addEventListener("DOMContentLoaded", function(e) {
     // })
 
 })
+
