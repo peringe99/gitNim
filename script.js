@@ -30,6 +30,7 @@ class Game {
 
             if (player.myTurn == true) {
                 this.stack = this.stack - number;
+                document.getElementsByClassName("player1").className += "active";
                 player.myTurn = false;
                 if (this.stack <= 0) {
                     return this.players[player - 1];
