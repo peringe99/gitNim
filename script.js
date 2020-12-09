@@ -30,7 +30,6 @@ class Game {
 
             if (player.myTurn == true) {
                 this.stack = this.stack - number;
-                document.getElementsByClassName("player1").className += "active";
                 player.myTurn = false;
                 if (this.stack <= 0) {
                     return this.players[player - 1];
@@ -38,11 +37,19 @@ class Game {
 
             } else {
                 player.myTurn = true;
+                document.getElementById("player1ID").classList.add("active");
             }
 
         }
     }
 };
+
+// if (player1.myTurn == true) {
+//     document.getElementById("player1ID").classList.add("active");
+// } else if (player2.myTurn == true){
+//     document.getElementById("player1ID").classList.remove("active");
+//     document.getElementById("player2ID").classList.add("active");
+// }
 let max_draw = 3;
 let game1 = new Game()
 // game1.draw(2);
