@@ -12,7 +12,7 @@ class Game {
     };
 
     draw(number){
-        this.stack =- number;
+        this.stack = this.stack-number;
     };
 
     addPlayer(playername){
@@ -26,5 +26,6 @@ class Game {
 let game1 = new Game()
 game1.addPlayer("Angelika");
 game1.addPlayer("Ali");
+game1.draw(2);
 
 console.log(game1);
