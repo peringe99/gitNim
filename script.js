@@ -11,17 +11,6 @@ class Game {
         this.stack = 21;
     };
 
-    draw2(number) {
-        let current_player = this.players.forEach((x, index) => {
-            if (x.myTurn = true) {
-                x.stack = this.stack - number;
-                x.myTurn = false;
-            }
-
-        })
-        return current_player;
-    };
-
     addPlayer(playername) {
         let newPlayer = new Player(playername, false)
         this.players.push(newPlayer);
