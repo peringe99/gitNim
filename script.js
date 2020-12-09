@@ -25,7 +25,7 @@ class Game {
     }
     draw(number) {
         for (let player of this.players) {
-        //for (let p = 0; p < this.players.length; p++) {
+            //for (let p = 0; p < this.players.length; p++) {
             //let player = this.players[p];
 
             if (player.myTurn == true) {
@@ -34,7 +34,7 @@ class Game {
                 if (this.stack <= 0) {
                     return this.players[player - 1];
                 }
-                
+
             } else {
                 player.myTurn = true;
             }
@@ -48,17 +48,35 @@ game1.addPlayer("Angelika"); // 0
 game1.addPlayer("Ali"); // 1
 // game1.draw(2);
 // console.log(game1.get_player());
-game1.draw(18)
-console.log(game1.stack)
-console.log(game1.players)
-game1.draw(1)
-console.log(game1.stack)
-console.log(game1.players)
-game1.draw(1)
-console.log(game1.stack)
-console.log(game1.players)
-game1.draw(1)
-console.log(game1.stack)
-console.log(game1.players)
+// game1.draw(18)
+// console.log(game1.stack)
+// console.log(game1.players)
+// game1.draw(1)
+// console.log(game1.stack)
+// console.log(game1.players)
+// game1.draw(1)
+// console.log(game1.stack)
+// console.log(game1.players)
+// game1.draw(1)
+// console.log(game1.stack)
+// console.log(game1.players)
 
 //console.log(game1.get_player());
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    let btn1 = document.getElementById('btn1').innerHTML
+    let btn2 = document.getElementById('btn2')
+    let btn3 = document.getElementById('btn3')
+    console.log(btn1)
+
+
+
+    btn1.addEventListener('click', game1.draw(1))
+    btn2.addEventListener('click', function(e) {
+        game1.draw(2);
+    })
+    btn3.addEventListener('click', function(e) {
+        game1.draw(3);
+    })
+
+})
