@@ -24,21 +24,19 @@ class Game {
         return this.players;
     }
     draw(number) {
-        let currentplayer;
-        let theotherplayer;
-        for (let p = 0; p < this.players.length; p++) {
-            let player = this.players[p];
+        for (let player of this.players) {
+        //for (let p = 0; p < this.players.length; p++) {
+            //let player = this.players[p];
 
-            if (player.myTurn == true) {;
-                currentplayer = player;
+            if (player.myTurn == true) {
                 this.stack = this.stack - number;
-                if (this.stack - number <= 0) {
-                    return this.players[p - 1];
+                player.myTurn = false;
+                if (this.stack <= 0) {
+                    return this.players[player - 1];
                 }
-                currentplayer.myTurn = false;
+                
             } else {
-                theotherplayer = player;
-                theotherplayer.myTurn = true;
+                player.myTurn = true;
             }
 
         }
@@ -50,9 +48,17 @@ game1.addPlayer("Angelika"); // 0
 game1.addPlayer("Ali"); // 1
 // game1.draw(2);
 // console.log(game1.get_player());
-console.log(game1.draw(19))
-console.log(game1.draw(1))
-console.log(game1.draw(1))
-
+game1.draw(18)
 console.log(game1.stack)
-console.log(game1.get_player());
+console.log(game1.players)
+game1.draw(1)
+console.log(game1.stack)
+console.log(game1.players)
+game1.draw(1)
+console.log(game1.stack)
+console.log(game1.players)
+game1.draw(1)
+console.log(game1.stack)
+console.log(game1.players)
+
+//console.log(game1.get_player());
