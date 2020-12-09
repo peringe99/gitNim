@@ -14,6 +14,8 @@ class Game {
     addPlayer(playername) {
         let newPlayer = new Player(playername, false)
         this.players.push(newPlayer);
+        this.players[0].myTurn = true;
+
     };
     get_player() {
         if (this.stack == 21) {
@@ -24,13 +26,15 @@ class Game {
     draw(number) {
         let currentplayer;
         let theotherplayer;
-        for (let player of this.players) {
-            if (this.stack <= 0) {
-                return endgame
-            }
+        for (let p = 0; p < this.players.length; p++) {
+            let player = this.players[p];
+
             if (player.myTurn == true) {;
                 currentplayer = player;
                 this.stack = this.stack - number;
+                if (this.stack - number <= 0) {
+                    return this.players[p - 1];
+                }
                 currentplayer.myTurn = false;
             } else {
                 theotherplayer = player;
@@ -39,14 +43,16 @@ class Game {
 
         }
     }
-
 };
-
+let max_draw = 3;
 let game1 = new Game()
-game1.addPlayer("Angelika");
-game1.addPlayer("Ali");
+game1.addPlayer("Angelika"); // 0
+game1.addPlayer("Ali"); // 1
 // game1.draw(2);
-console.log(game1.get_player());
-game1.draw(3)
+// console.log(game1.get_player());
+console.log(game1.draw(19))
+console.log(game1.draw(1))
+console.log(game1.draw(1))
+
 console.log(game1.stack)
 console.log(game1.get_player());
