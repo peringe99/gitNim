@@ -9,108 +9,96 @@ class Game {
     constructor() {
         this.players = [];
         this.stack = 21;
+        this.throw();
     };
-
+    throw () {
+        let game_sticks = document.getElementById('game_sticks');
+        game_sticks.innerHTML = '';
+        for (let i = 0; i < this.stack; i++) {
+            game_sticks.innerHTML += `<img src="../images/stick.png" id="stick_${i + 1}" alt="">`;
+        }
+    }
     addPlayer(playername) {
-        let newPlayer = new Player(playername, false)
+        let newPlayer = new Player(playername, false);
         this.players.push(newPlayer);
         this.players[0].myTurn = true;
-
     };
     get_player() {
-        if (this.stack == 21) {
-            this.players[0].myTurn = true;
-        }
         return this.players;
+    }
+    check_player_turn(p) {
+        p.myTurn = p.myTurn ? false : true;
     }
     draw(number) {
         for (let player of this.players) {
-            //for (let p = 0; p < this.players.length; p++) {
-            //let player = this.players[p];
-
             if (player.myTurn == true) {
-                this.stack = this.stack - number;
-                player.myTurn = false;
-                if (this.stack <= 0) {
-                    alert(`${player.name} lost!`)
-                    return 
-                    //this.players[player - 1];
+                this.stack -= number;
+                this.throw();
+                // console.log('player ' + player.name + ' ' + player.myTurn + ' ' + -number)
+                if (this.stack == 0 || this.stack == 1) {
+                    // console.log('you win ' + player.name + ' ' + player.myTurn)
+                    let test = this.players.find(x => x.myTurn == false);
+                    return test;
                 }
-
             } else {
-                player.myTurn = true;
-                document.getElementById("player1ID").classList.add("active");
+                // player.myTurn = true;
+                // this.check_player_turn(player)
+                // document.getElementById("player1ID").classList.add("active");
             }
-
+            this.check_player_turn(player);
         }
+        this.player_is_active()
+    }
+    startGame() {
+        let player1 = prompt("Name of player one?");
+        let player2 = prompt("Name of player two?");
+        this.addPlayer(player1);
+        this.addPlayer(player2);
+
+        let player_one = document.getElementById("name_one");
+        player_one.innerHTML = player1;
+        player_one.parentElement.dataset.name = player1;
+        let player_two = document.getElementById("name_two");
+        player_two.innerHTML = player2;
+        player_two.parentElement.dataset.name = player2;
+        this.player_is_active();
+    }
+    player_is_active() {
+        let player_active = document.querySelectorAll('.player');
+        player_active.forEach((x, index) => {
+            x.classList.remove('active');
+            if (this.players[index].name == x.dataset.name && this.players[index].myTurn == true) {
+                x.classList.add('active');
+            }
+        })
     }
 };
 
-// if (player1.myTurn == true) {
-//     document.getElementById("player1ID").classList.add("active");
-// } else if (player2.myTurn == true){
-//     document.getElementById("player1ID").classList.remove("active");
-//     document.getElementById("player2ID").classList.add("active");
-// }
-let max_draw = 3;
-let game1 = new Game()
-// game1.draw(2);
-// console.log(game1.get_player());
-// game1.draw(18)
-// console.log(game1.stack)
-// console.log(game1.players)
-// game1.draw(1)
-// console.log(game1.stack)
-// console.log(game1.players)
-// game1.draw(1)
-// console.log(game1.stack)
-// console.log(game1.players)
-// game1.draw(1)
-// console.log(game1.stack)
-// console.log(game1.players)
 
-//console.log(game1.get_player());
+let max_draw = 3;
+let count = 21;
+
 
 document.addEventListener("DOMContentLoaded", function(e) {
 
-    let player1 = prompt("Name of player one?");
-    let player2 = prompt("Name of player two?");
-    game1.addPlayer(player1);
-    game1.addPlayer(player2);
+    let game1 = new Game();
+    game1.startGame();
 
-    document.getElementById("name_one").innerHTML = player1;
-    document.getElementById("name_two").innerHTML = player2;
-
+    // let game_sticks = document.getElementById('game_sticks');
     // let btn1 = document.getElementById('btn1');
     // let btn2 = document.getElementById('btn2');
     // let btn3 = document.getElementById('btn3');
 
     let btn_choice = document.querySelectorAll(".btn_choice");
-    let count = 0;
+
     btn_choice.forEach((x, index) => {
         x.addEventListener('click', function(e) {
-            game1.draw(index + 1)
-            count++;
-            let stick = document.getElementById(`stick_${ count }`);
-            stick.style.display = 'none';
-            console.log(game1.stack)
-            console.log(stick)
-        })
-    })
-
-    // btn1.addEventListener('click', function(e) {
-    //     game1.draw(1);
-
-    //     console.log(game1.stack)
-    // })
-    // btn2.addEventListener('click', function(e) {
-    //     game1.draw(2);
-    //     console.log(game1.stack)
-    // })
-    // btn3.addEventListener('click', function(e) {
-    //     game1.draw(3);
-    //     console.log(game1.stack)
-    // })
-
-})
-
+            count -= index + 1;
+            console.log(count, index + 1)
+            if (count == index + 1 || count <= index + 1 || count == 0) {
+                this.setAttribute('disabled', 'disabled');
+            }
+            game1.draw(index + 1);
+        });
+    });
+});

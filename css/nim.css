@@ -35,30 +35,6 @@
     background-color: rgba(222, 212, 111, .9);
 }
 
-.landing-page {
-    width: 100%;
-    height: 96vh;
-    background: url('https://picsum.photos/seed/picsum/1200/1000') center;
-    background-size: cover;
-    position: relative;
-}
-
-.overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: rgba(0, 0, 0, .6);
-}
-
-.landing-content {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    position: absolute;
-    color: #FFF;
-}
-
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
@@ -68,21 +44,28 @@ h1 {
 
 /* Start Game Area */
 
-.player1 {
-    border-style: solid;
-    width: 20%;
-    height: 350px;
-}
-
-.player2 {
-    border-style: solid;
-    width: 20%;
-    height: 350px;
-}
-
 .players {
     display: flex;
     flex-direction: row;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.player {
+    border-style: solid;
+    width: 20%;
+    height: 350px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.player span {
+    top: 50%;
+    width: 200px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .game_area {
@@ -110,6 +93,7 @@ h1 {
 .choice button {
     width: 100px;
     height: 30px;
+    cursor: pointer;
 }
 
 .start_over {
@@ -120,20 +104,14 @@ h1 {
 .start_over button {
     width: 100px;
     height: 30px;
+    cursor: pointer;
 }
 
 .active {
-    background-color: seagreen;
+    background-color: rgba(46, 138, 86, .6);
 }
 
-.player1{
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.player2{
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+
 /* End Game Area */
 
 
