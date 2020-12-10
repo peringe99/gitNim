@@ -104,9 +104,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
         window.location.reload();
     })
 
-    highscoreBox.addEventListener("click", function(){
-        document.getElementById("highscoreID").style.visibility = "visible";
-    })
+    // highscoreBox.addEventListener("click", function(){
+        // document.getElementById("highscoreID").style.visibility = "visible";
+    // })
+
+    
 
     btn_choice.forEach((x, index) => {
         x.addEventListener('click', function(e) {
@@ -119,3 +121,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         });
     });
 });
+
+function showHighscore() {
+    let high = document.getElementById("highscoreID");
+    if (high.style.visibility = "hidden") {
+        high.style.visibility = "visible"
+    } else if (high.style.visibility = "visible"){
+        high.style.visibility = "hidden"
+    }
+  }
