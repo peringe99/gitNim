@@ -11,31 +11,36 @@ class Game {
         this.stack = 21;
         this.throw();
     };
+
     throw () {
         let game_sticks = document.getElementById('game_sticks');
         game_sticks.innerHTML = '';
         for (let i = 0; i < this.stack; i++) {
             game_sticks.innerHTML += `<img src="../images/stick.png" id="stick_${i + 1}" alt="">`;
         }
-    }
+    };
+
     addPlayer(playername) {
         let newPlayer = new Player(playername, false);
         this.players.push(newPlayer);
         this.players[0].myTurn = true;
     };
+
     get_player() {
         return this.players;
-    }
+    };
+
     check_player_turn(p) {
         p.myTurn = p.myTurn ? false : true;
-    }
+    };
+
     draw(number) {
         for (let player of this.players) {
             if (player.myTurn == true) {
                 this.stack -= number;
                 this.throw();
                 // console.log('player ' + player.name + ' ' + player.myTurn + ' ' + -number)
-                if (this.stack == 0 || this.stack == 1) {
+                if (this.stack ==0) {
                     // console.log('you win ' + player.name + ' ' + player.myTurn)
                     let test = this.players.find(x => x.myTurn == false);
                     return test;
@@ -48,7 +53,8 @@ class Game {
             this.check_player_turn(player);
         }
         this.player_is_active()
-    }
+    };
+
     startGame() {
         let player1 = prompt("Name of player one?");
         let player2 = prompt("Name of player two?");
@@ -62,7 +68,8 @@ class Game {
         player_two.innerHTML = player2;
         player_two.parentElement.dataset.name = player2;
         this.player_is_active();
-    }
+    };
+
     player_is_active() {
         let player_active = document.querySelectorAll('.player');
         player_active.forEach((x, index) => {
@@ -71,7 +78,7 @@ class Game {
                 x.classList.add('active');
             }
         })
-    }
+    };
 };
 
 
