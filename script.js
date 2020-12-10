@@ -40,10 +40,9 @@ class Game {
                 this.stack -= number;
                 this.throw();
                 // console.log('player ' + player.name + ' ' + player.myTurn + ' ' + -number)
-                if (this.stack == 0) {
+                if (this.stack <= 0) {
                     // console.log('you win ' + player.name + ' ' + player.myTurn)
-                    let test = this.players.find(x => x.myTurn == false);
-                    return test;
+                    this.endGame(player)
                 }
             } else {
                 // player.myTurn = true;
@@ -79,6 +78,9 @@ class Game {
             }
         })
     };
+    endGame(play) {
+        alert(`${play.name} - har förlorat`)
+    }
 };
 
 
@@ -92,11 +94,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
     game1.startGame();
 
     // let game_sticks = document.getElementById('game_sticks');
-    // let btn1 = document.getElementById('btn1');
-    // let btn2 = document.getElementById('btn2');
-    // let btn3 = document.getElementById('btn3');
+    let btn1 = document.getElementById('btn1');
+    let btn2 = document.getElementById('btn2');
+    let btn3 = document.getElementById('btn3');
 
-    let btn_choice = document.querySelectorAll(".btn_choice");
+    btn1.addEventListener('click', () => { game1.draw(1) });
+    btn2.addEventListener('click', () => { game1.draw(2) });
+    btn3.addEventListener('click', () => { game1.draw(3) });
+
     let start_over = document.getElementById("btn_over");
     let highscoreBox = document.getElementById("hig_btn");
 
@@ -109,17 +114,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
     // })
 
 
-
-    btn_choice.forEach((x, index) => {
-        x.addEventListener('click', function(e) {
-            count -= index + 1;
-            console.log(count, index + 1)
-            if (count == index + 1 || count <= index + 1 || count == 0) {
-                this.setAttribute('disabled', 'disabled');
-            }
-            game1.draw(index + 1);
-        });
-    });
+    //let btn_choice = document.querySelectorAll(".btn_choice");
+    // btn_choice.forEach((x, index) => {
+    //     x.addEventListener('click', function(e) {
+    //         console.log(count, index + 1);
+    //         game1.draw(index + 1);
+    //     });
+    // });
 });
 
 function showHighscore() {
