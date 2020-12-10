@@ -40,7 +40,7 @@ class Game {
                 this.stack -= number;
                 this.throw();
                 // console.log('player ' + player.name + ' ' + player.myTurn + ' ' + -number)
-                if (this.stack ==0) {
+                if (this.stack == 0) {
                     // console.log('you win ' + player.name + ' ' + player.myTurn)
                     let test = this.players.find(x => x.myTurn == false);
                     return test;
