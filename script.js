@@ -1,7 +1,8 @@
 class Player {
-    constructor(name, myTurn) {
+    constructor(name, myTurn, score) {
         this.name = name;
         this.myTurn = myTurn;
+        this.score = score;
     };
 };
 
@@ -79,7 +80,7 @@ class Game {
         })
     };
     endGame(play) {
-        alert(`${play.name} - har förlorat`)
+        alert(`${play.name} har förlorat`)
     }
 };
 
@@ -103,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     btn3.addEventListener('click', () => { game1.draw(3) });
 
     let start_over = document.getElementById("btn_over");
-    let highscoreBox = document.getElementById("hig_btn");
 
     start_over.addEventListener("click", function() {
         window.location.reload();
