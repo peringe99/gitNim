@@ -90,6 +90,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
     // let btn3 = document.getElementById('btn3');
 
     let btn_choice = document.querySelectorAll(".btn_choice");
+    let start_over = document.getElementById("btn_over");
+    let highscoreBox = document.getElementById("hig_btn");
+
+    start_over.addEventListener("click", function(){
+        window.location.reload();
+    })
+
+    highscoreBox.addEventListener("click", function(){
+        document.getElementById("highscoreID").style.visibility = "visible";
+    })
 
     btn_choice.forEach((x, index) => {
         x.addEventListener('click', function(e) {
