@@ -146,8 +146,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 });
 
+let high = document.getElementById("highscoreID");
+
 function showHighscore() {
-    let high = document.getElementById("highscoreID");
+
     if (high.style.visibility === "hidden") {
         high.style.visibility = "visible"
         let player_one_score = document.getElementById("player1score");
