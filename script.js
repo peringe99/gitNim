@@ -107,10 +107,10 @@ class Game {
 let max_draw = 3;
 let count = 21;
 
+let game1 = new Game();
 
 document.addEventListener("DOMContentLoaded", function(e) {
 
-    let game1 = new Game();
     game1.startGame();
 
     // let game_sticks = document.getElementById('game_sticks');
@@ -144,21 +144,26 @@ document.addEventListener("DOMContentLoaded", function(e) {
     console.log(hig_btn)
     hig_btn.addEventListener('click', () => { showHighscore() });
 
-    function showHighscore() {
-        let high = document.getElementById("highscoreID");
-        if (high.style.visibility === "hidden") {
-            high.style.visibility = "visible"
-                // let player_one_score = document.getElementById("player1score");
-                // player_one_score.innerHTML = `${Game.players.player1.name}'s score is ${Game.players.player1.score}`
-
-            game1.get_player().forEach(x => {
-                console.log('From Score', x)
-            })
-
-            // let player_two_score = document.getElementById("player2score");
-            // player_two_score.innerHTML = "${player2}'s score is ${player2.score}"
-        } else {
-            high.style.visibility = "hidden"
-        }
-    }
 });
+
+function showHighscore() {
+    let high = document.getElementById("highscoreID");
+    if (high.style.visibility === "hidden") {
+        high.style.visibility = "visible"
+        let player_one_score = document.getElementById("player1score");
+
+
+        game1.get_player().forEach(player => {
+            if (player.score > 0) {
+                player_one_score.innerHTML = `${player.name}'s score is ${player.score}`
+            } else {
+                console.log(player)
+            }
+        })
+
+        // let player_two_score = document.getElementById("player2score");
+        // player_two_score.innerHTML = "${player2}'s score is ${player2.score}"
+    } else {
+        high.style.visibility = "hidden"
+    }
+}
