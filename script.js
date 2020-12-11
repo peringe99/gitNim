@@ -57,7 +57,8 @@ class Game {
                 // console.log('player ' + player.name + ' ' + player.myTurn + ' ' + -number)
                 if (this.stack <= 0) {
                         console.log('you win ' + this.players[((i + 1) % 2)].name + ' ' + this.players[((i +1) % 2)].myTurn)
-                        this.endGame(this.players[((i + 1) % 2)])
+                        this.endGame(this.players[((i + 1) % 2
+                )])
                         this.players[((i + 1) % 2)].score += 2
                         console.log(this.players[((i + 1) % 2)].score)
                 }
@@ -146,6 +147,11 @@ function showHighscore() {
     let high = document.getElementById("highscoreID");
     if (high.style.visibility === "hidden") {
         high.style.visibility = "visible"
+        // let player_one_score = document.getElementById("player1score");
+        // player_one_score.innerHTML = `${Game.players.player1.name}'s score is ${Game.players.player1.score}`
+        console.log(Player.player1.name)
+        // let player_two_score = document.getElementById("player2score");
+        // player_two_score.innerHTML = "${player2}'s score is ${player2.score}"
     } else {
         high.style.visibility = "hidden"
     }
