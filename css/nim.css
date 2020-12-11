@@ -41,7 +41,7 @@ h1 {
     align-content: center;
 }
 
-.rules{
+.rules {
     background-color: yellow;
     width: 300px;
     height: 100px;
@@ -121,7 +121,7 @@ h1 {
     background-color: rgba(46, 138, 86, .6);
 }
 
-.highscore{
+.highscore {
     width: 300px;
     height: 300px;
     border-style: solid;
@@ -129,6 +129,7 @@ h1 {
     margin-left: 565px;
     visibility: hidden;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: inline-block;
 }
 
 
