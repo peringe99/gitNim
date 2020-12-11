@@ -146,20 +146,25 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 });
 
-let high = document.getElementById("highscoreID");
 
 function showHighscore() {
+    let high = document.getElementById("highscoreID");
 
     if (high.style.visibility === "hidden") {
         high.style.visibility = "visible"
         let player_one_score = document.getElementById("player1score");
+        player_one_score.innerHTML = ''
+
+
 
 
         game1.get_player().forEach(player => {
+            console.log(player)
             if (player.score > 0) {
-                player_one_score.innerHTML = `${player.name}'s score is ${player.score}`
-            } else {
-                console.log(player)
+                let span = document.createElement('span');
+                let text = document.createTextNode(`${player.name}'s score is ${player.score}`);
+                span.appendChild(text)
+                player_one_score.appendChild(span);
             }
         })
 

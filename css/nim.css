@@ -138,6 +138,12 @@ h1 {
     float: left;
 }
 
+.highscore span {
+    display: block;
+    font-size: 18px;
+    padding: .5rem;
+}
+
 
 /* End Game Area */
 
