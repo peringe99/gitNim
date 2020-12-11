@@ -41,6 +41,16 @@ h1 {
     align-content: center;
 }
 
+.rules{
+    background-color: yellow;
+    width: 300px;
+    height: 100px;
+    margin-left: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    filter: drop-shadow(10px 20px 4px rgb(167, 167, 3));
+    transform: rotate(-20deg)
+}
+
 
 /* Start Game Area */
 
